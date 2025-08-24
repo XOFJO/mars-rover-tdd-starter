@@ -7,22 +7,24 @@ public class MarsRover {
     private final String WEST_DIRECTION = "W";
     private final String EAST_DIRECTION = "E";
 
-    public MarsRover(int x, int y, String direction) {
-        this.x_coordination = x;
-        this.y_coordination = y;
+    public MarsRover(int x_coordination, int y_coordination, String direction) {
+        this.x_coordination = x_coordination;
+        this.y_coordination = y_coordination;
         this.direction = direction;
 
     }
-    public void execute(String command) {
-        if (command.equals("M")) {
-            move(this.direction, true);
-        } else if (command.equals("L")) {
-            changeDirection("L");
-        } else if (command.equals("R")) {
-            changeDirection("R");
-        } else if (command.equals("B")) {
-            move(this.direction, false);
-        }
+    public void execute(String commands) {
+        commands.chars().forEach(command -> {
+            if (command == 'M') {
+                move(this.direction, true);
+            } else if (command == 'L') {
+                changeDirection("L");
+            } else if (command == 'R') {
+                changeDirection("R");
+            } else if (command == 'B') {
+                move(this.direction, false);
+            }
+        });
     }
 
     private void changeDirection(String direction) {

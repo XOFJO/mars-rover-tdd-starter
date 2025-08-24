@@ -204,7 +204,7 @@ public class MarsRoverTest {
     @Test
     public void test_batch_command_facing_East() {
         // Given
-        MarsRover rover = new MarsRover(0, 0, "E");
+        MarsRover rover = new MarsRover(0, 0, "N");
 
         // When
         rover.execute("MRMLM");
