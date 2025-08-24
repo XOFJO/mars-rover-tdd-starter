@@ -149,6 +149,58 @@ public class MarsRoverTest {
         assertEquals("(0, 0) S", rover.report());
     }
 
+
+    @Test
+    public void test_move_backward_facing_north() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, "N");
+
+        // When
+        rover.execute("B");
+
+        // Then
+        assertEquals("(0, -1) N", rover.report());
+    }
+
+
+    @Test
+    public void test_move_backward_facing_south() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, "S");
+
+        // When
+        rover.execute("B");
+
+        // Then
+        assertEquals("(0, 1) S", rover.report());
+    }
+
+
+    @Test
+    public void test_move_backward_facing_west() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, "W");
+
+        // When
+        rover.execute("B");
+
+        // Then
+        assertEquals("(1, 0) W", rover.report());
+    }
+
+
+    @Test
+    public void test_move_backward_facing_East() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, "E");
+
+        // When
+        rover.execute("B");
+
+        // Then
+        assertEquals("(-1, 0) E", rover.report());
+    }
+
 }
 
 
