@@ -15,33 +15,31 @@ public class MarsRover {
     }
     public void execute(String command) {
         if (command.equals("M")) {
-            switch (this.direction) {
-                case NORTH_DIRECTION -> this.y_coordination += 1;
-                case SOUTH_DIRECTION -> this.y_coordination -= 1;
-                case WEST_DIRECTION -> this.x_coordination -= 1;
-                case EAST_DIRECTION -> this.x_coordination += 1;
-            }
+            move(this.direction, true);
         } else if (command.equals("L")) {
-            switch (this.direction) {
-                case NORTH_DIRECTION -> this.direction = WEST_DIRECTION;
-                case SOUTH_DIRECTION -> this.direction = EAST_DIRECTION;
-                case WEST_DIRECTION -> this.direction = SOUTH_DIRECTION;
-                case EAST_DIRECTION -> this.direction = NORTH_DIRECTION ;
-            }
+            changeDirection("L");
         } else if (command.equals("R")) {
-            switch (this.direction) {
-                case NORTH_DIRECTION -> this.direction = EAST_DIRECTION;
-                case SOUTH_DIRECTION -> this.direction = WEST_DIRECTION;
-                case WEST_DIRECTION -> this.direction = NORTH_DIRECTION;
-                case EAST_DIRECTION -> this.direction = SOUTH_DIRECTION ;
-            }
+            changeDirection("R");
         } else if (command.equals("B")) {
-            switch (this.direction) {
-                case NORTH_DIRECTION -> this.y_coordination -= 1;
-                case SOUTH_DIRECTION -> this.y_coordination += 1;
-                case WEST_DIRECTION -> this.x_coordination += 1;
-                case EAST_DIRECTION -> this.x_coordination -= 1;
-            }
+            move(this.direction, false);
+        }
+    }
+
+    private void changeDirection(String direction) {
+        switch (this.direction) {
+            case NORTH_DIRECTION -> this.direction = direction.equals("L") ? WEST_DIRECTION : EAST_DIRECTION;
+            case SOUTH_DIRECTION -> this.direction = direction.equals("L") ? EAST_DIRECTION : WEST_DIRECTION;
+            case WEST_DIRECTION -> this.direction = direction.equals("L") ? SOUTH_DIRECTION : NORTH_DIRECTION;
+            case EAST_DIRECTION -> this.direction = direction.equals("L") ? NORTH_DIRECTION : SOUTH_DIRECTION;
+        }
+    }
+
+    private void move(String cur_direction, boolean isForward) {
+        switch (cur_direction) {
+            case NORTH_DIRECTION -> this.y_coordination += isForward ? 1 : -1;
+            case SOUTH_DIRECTION -> this.y_coordination += isForward ? -1 : 1;
+            case WEST_DIRECTION -> this.x_coordination += isForward ? -1 : 1;
+            case EAST_DIRECTION -> this.x_coordination += isForward ? 1 : -1;
         }
     }
 
