@@ -23,6 +23,8 @@ public class MarsRover {
                 changeDirection("R");
             } else if (command == 'B') {
                 move(this.direction, false);
+            } else {
+                throw new IllegalArgumentException("Invalid command");
             }
         });
     }
