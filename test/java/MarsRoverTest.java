@@ -201,6 +201,18 @@ public class MarsRoverTest {
         assertEquals("(-1, 0) E", rover.report());
     }
 
+    @Test
+    public void test_batch_command_facing_East() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, "E");
+
+        // When
+        rover.execute("MRMLM");
+
+        // Then
+        assertEquals("(1, 2) N", rover.report());
+    }
+
 }
 
 
