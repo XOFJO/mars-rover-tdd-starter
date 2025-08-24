@@ -12,6 +12,12 @@ public class MarsRover {
         if (command.equals("M")) {
             if (this.direction.equals("N")) {
                 this.y += 1;
+            } else if (this.direction.equals("S")) {
+                this.y -= 1;
+            } else if (this.direction.equals("W")) {
+                this.x -= 1;
+            } else if (this.direction.equals("E")) {
+                this.x += 1;
             }
         }
     }
