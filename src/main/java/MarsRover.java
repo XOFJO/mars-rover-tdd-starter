@@ -21,6 +21,10 @@ public class MarsRover {
                 case WEST_DIRECTION -> this.x_coordination -= 1;
                 case EAST_DIRECTION -> this.x_coordination += 1;
             }
+        } else if (command.equals("L")) {
+            switch (this.direction) {
+                case NORTH_DIRECTION -> this.direction = WEST_DIRECTION;
+            }
         }
     }
 
