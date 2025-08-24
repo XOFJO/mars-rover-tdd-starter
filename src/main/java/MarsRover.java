@@ -1,28 +1,30 @@
 public class MarsRover {
-    private int x;
-    private int y;
+    private int x_coordination;
+    private int y_coordination;
     private String direction;
+    private final String NORTH_DIRECTION = "N";
+    private final String SOUTH_DIRECTION = "S";
+    private final String WEST_DIRECTION = "W";
+    private final String EAST_DIRECTION = "E";
+
     public MarsRover(int x, int y, String direction) {
-        this.x = x;
-        this.y = y;
+        this.x_coordination = x;
+        this.y_coordination = y;
         this.direction = direction;
 
     }
     public void execute(String command) {
         if (command.equals("M")) {
-            if (this.direction.equals("N")) {
-                this.y += 1;
-            } else if (this.direction.equals("S")) {
-                this.y -= 1;
-            } else if (this.direction.equals("W")) {
-                this.x -= 1;
-            } else if (this.direction.equals("E")) {
-                this.x += 1;
+            switch (this.direction) {
+                case NORTH_DIRECTION -> this.y_coordination += 1;
+                case SOUTH_DIRECTION -> this.y_coordination -= 1;
+                case WEST_DIRECTION -> this.x_coordination -= 1;
+                case EAST_DIRECTION -> this.x_coordination += 1;
             }
         }
     }
 
     public String report() {
-        return "(" + this.x + ", " +  this.y + ")" + " " + this.direction;
+        return "(" + this.x_coordination + ", " +  this.y_coordination + ")" + " " + this.direction;
     }
 }
