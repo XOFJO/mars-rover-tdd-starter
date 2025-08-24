@@ -54,6 +54,18 @@ public class MarsRoverTest {
         assertEquals("(1, 0) E", rover.report());
     }
 
+    @Test
+    public void test_turn_left_direction_facing_north() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, "N");
+
+        // When
+        rover.execute("L");
+
+        // Then
+        assertEquals("(0, 0) W", rover.report());
+    }
+
 }
 
 
